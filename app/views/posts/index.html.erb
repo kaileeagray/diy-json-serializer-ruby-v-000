@@ -8,13 +8,10 @@ $(function () {
     var id = $(this).data("id");
     $.get("/posts/" + id + "/post_data", function(data) {
       // Replace text of body-id div
-      console.log(data);
 
-      console.log(typeof data);
-      console.log(data['description']);
-      console.log(data["description"]);
+      var description = JSON.parse(data)["description"]
 
-      $("#body-" + id).html(data["description"]);
+      $("#body-" + id).html(description);
     });
   });
 });
